@@ -23,7 +23,7 @@ IM_WIDTH, IM_HEIGHT = 299, 299 #fixed size for InceptionV3
 NB_EPOCHS = 3
 BAT_SIZE = 32
 FC_SIZE = 1024
-NB_IV3_LAYERS_TO_FREEZE = 172
+NB_IV3_LAYERS_TO_FREEZE = 173
 
 
 def get_nb_files(directory):
@@ -98,7 +98,7 @@ validation_generator = test_datagen.flow_from_directory(
 )
 
 # setup model
-base_model = InceptionV3(weights='imagenet', include_top=False)
+base_model = InceptionV3(weights='imagenet', include_top=True)
 model = add_new_last_layer(base_model, nb_classes)
 model._is_graph_network = False
 
